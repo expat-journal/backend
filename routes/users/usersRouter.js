@@ -6,56 +6,6 @@ const bcrypt = require( "bcrypt" );
 const { generateToken } = require( "../../api/tokenService" );
 
 /**
- * @api {get} /users Get all users
- * @apiVersion 1.0.0
- * @apiName GetUsers
- * @apiGroup Users
- *
- * @apiHeader {String} authorization  User auth token.
- *
- * @apiExample Request example:
- * const request = axios.create({
- *     baseURL: 'http://localhost:3200',
-        timeout: 1000,
-        headers: {
-            authorization: "userTokenGoesHere"
-        }
- * });
- * request.get('/users');
- *
- * @apiUse Error
- *
- * @apiSuccessExample Users Data
- * [
- {
-        "id": 1,
-        "created_at": "2019-04-13 09:01:42",
-        "updated_at": "2019-04-13 18:54:22",
-        "user_name": "Constance36"
-    },
- {
-        "id": 2,
-        "created_at": "2019-04-13 03:36:08",
-        "updated_at": "2019-04-13 18:54:22",
-        "user_name": "Marcellus_Kautzer24"
-    },...
- ]
- *
- */
-usersRouter.get( "/", restricted, ( req, res ) => {
-    getAllUsers().then( dbUsers => {
-        const usersArray = dbUsers.map( user => {
-            return { ...user, password: undefined };
-        } );
-        
-        res.status( 200 ).json( usersArray );
-    } ).catch( err => {
-        console.log( err );
-        res.status( 500 ).json( { status: 500, message: err.message } );
-    } );
-} );
-
-/**
  * @api {get} /users/:id        Get a user with the id.
  * @apiVersion 1.0.0
  * @apiName GetUser
@@ -197,7 +147,7 @@ usersRouter.post( "/login", ( req, res ) => {
     let { user_name, password } = req.body;
     
     getUserByUserName( user_name ).then( user => {
-        if ( user && bcrypt.compareSync( password, user.password ) ) {
+        if ( bcrypt.compareSync( password, password ) ) {
             const token = generateToken( user );
             res.status( 200 ).
                 json( {

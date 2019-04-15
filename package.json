@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
     "api-docs": "apidoc -f .js -i ./routes -o apidoc/",
     "build-docs": "apidoc-markdown -p ./apidoc/ -o README.md",
     "build-api": "npm-run-all api-docs build-docs"
@@ -22,6 +24,7 @@
     "helmet": "^3.16.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.16.5",
+    "pg": "^7.9.0",
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {

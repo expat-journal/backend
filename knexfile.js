@@ -1,5 +1,14 @@
 const path = require( "path" );
 const dbPath = path.join( __dirname, "./database/expat.sqlite3" );
+const dbPathProd = path.join( __dirname, "./database/expatProd.sqlite3" );
+
+const localPg = {
+    host:     "localhost",
+    database: "expat_journal",
+    user:     "student",
+    password: "password",
+};
+const productionDbConnection = process.env.DATABASE_URL || localPg;
 
 module.exports = {
     development: {
@@ -25,18 +34,26 @@ module.exports = {
         },
         useNullAsDefault: true,
         migrations:       {
-            directory: "./data/migrations",
+            directory: "./database/migrations",
+            tableName: "dbmigrations",
         },
     },
     
     production: {
-        client:     "pg",
-        connection: path.join( __dirname, "./database/expatProd.sqlite3" ),
-        migrations: {
-            directory: "./data/migrations",
+        client:           "sqlite3",
+        connection:       { filename: dbPathProd },
+        useNullAsDefault: true,
+        migrations:       {
+            directory: "./database/migrations",
+            tableName: "dbmigrations",
         },
-        seeds:      {
-            directory: "./data/seeds",
+        seeds:            { directory: "./database/seeds" },
+        // by default SQLite will not enforce foreign keys
+        pool:             {
+            afterCreate: ( conn, done ) => {
+                conn.run( "PRAGMA foreign_keys = ON", done ); // enforce FK
+            },
         },
     },
+
 };
