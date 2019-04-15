@@ -80,7 +80,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/comments"
+        "url": "http://localhost:3200/comments"
       }
     ],
     "error": {
@@ -164,7 +164,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/comments/post_id/:id"
+        "url": "http://localhost:3200/comments/post_id/:id"
       }
     ],
     "error": {
@@ -283,7 +283,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/comments"
+        "url": "http://localhost:3200/comments"
       }
     ],
     "error": {
@@ -416,7 +416,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/posts/"
+        "url": "http://localhost:3200/posts/"
       }
     ],
     "error": {
@@ -500,7 +500,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/posts/id/:id"
+        "url": "http://localhost:3200/posts/id/:id"
       }
     ],
     "error": {
@@ -584,7 +584,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/posts/:offset"
+        "url": "http://localhost:3200/posts/:offset"
       }
     ],
     "error": {
@@ -724,7 +724,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/posts/"
+        "url": "http://localhost:3200/posts/"
       }
     ],
     "error": {
@@ -808,7 +808,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/users/:id"
+        "url": "http://localhost:3200/users/:id"
       }
     ],
     "error": {
@@ -886,7 +886,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/users/login"
+        "url": "http://localhost:3200/users/login"
       }
     ],
     "error": {
@@ -978,7 +978,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/users/register"
+        "url": "http://localhost:3200/users/register"
       }
     ],
     "error": {
@@ -1076,7 +1076,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend-test.herokuapp.com/users"
+        "url": "http://localhost:3200/users"
       }
     ],
     "error": {

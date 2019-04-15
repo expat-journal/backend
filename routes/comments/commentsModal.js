@@ -12,7 +12,12 @@ const getCommentsByPostId = postId => {
 };
 
 const addComment = comment => {
-    return db( "comments" ).insert( comment );
+    return db( "comments" ).
+        returning(
+            [
+                "comment", "post_id", "created_at", "updated_at", "likes", "id"
+            ] ).
+        insert( comment );
 };
 
 const editComment = comment => {

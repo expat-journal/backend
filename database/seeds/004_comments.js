@@ -14,7 +14,7 @@ const makeComments = async () => {
                 post_id:    i + 1,
                 comment:    faker.lorem.sentences(),
                 created_at: moment( faker.date.recent() ).
-                    format( "YYYY-MM-DD HH:mm:ss" ),
+                                format( "YYYY-MM-DD HH:mm:ss" ),
             };
             comments.push( comment );
         }
@@ -25,7 +25,7 @@ const makeComments = async () => {
 
 exports.seed = function( knex ) {
     // Deletes ALL existing entries
-    return knex( "comments" ).truncate().then( async function() {
+    return knex( "comments" ).del().then( async function() {
         // Inserts seed entries
         return knex.batchInsert( "comments", await makeComments(), 10 );
     } );

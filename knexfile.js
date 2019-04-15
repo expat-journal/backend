@@ -5,7 +5,7 @@ const dbPathProd = path.join( __dirname, "./database/expatProd.sqlite3" );
 const localPg = {
     host:     "localhost",
     database: "expat_journal",
-    user:     "student",
+    user:     "postgres",
     password: "password",
 };
 const productionDbConnection = process.env.DATABASE_URL || localPg;
@@ -40,20 +40,14 @@ module.exports = {
     },
     
     production: {
-        client:           "sqlite3",
-        connection:       { filename: dbPathProd },
-        useNullAsDefault: true,
-        migrations:       {
+        client:     "pg",
+        connection: productionDbConnection, // could be an object or a string
+        migrations: {
             directory: "./database/migrations",
-            tableName: "dbmigrations",
         },
-        seeds:            { directory: "./database/seeds" },
-        // by default SQLite will not enforce foreign keys
-        pool:             {
-            afterCreate: ( conn, done ) => {
-                conn.run( "PRAGMA foreign_keys = ON", done ); // enforce FK
-            },
+        seeds:      {
+            directory: "./database/seeds",
         },
     },
-
+    
 };

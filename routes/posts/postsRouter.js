@@ -228,13 +228,9 @@ postsRouter.post( "/", ( req, res ) => {
     
     post.user_id = user.id;
     
-    insertPost( post ).then( ids => {
-        if ( ids[ 0 ] ) {
-            getPostById( ids[ 0 ] ).then( post => {
-                res.status( 201 ).json( post );
-            } ).catch( err => {
-                throw err;
-            } );
+    insertPost( post ).then( post => {
+        if ( post ) {
+            return res.status( 201 ).json( post );
         } else {
             throw {
                 message: "Something went wrong while trying to insert the post.",

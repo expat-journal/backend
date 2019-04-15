@@ -27,7 +27,7 @@ const makePosts = async () => {
 
 exports.seed = function( knex ) {
     // Deletes ALL existing entries
-    return knex( "posts" ).truncate().then( async function() {
+    return knex( "posts" ).del().then( async function() {
         // Inserts seed entries
         return knex.batchInsert( "posts", await makePosts(), 10 );
         
