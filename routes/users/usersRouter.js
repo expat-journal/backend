@@ -147,7 +147,7 @@ usersRouter.post( "/login", ( req, res ) => {
     let { user_name, password } = req.body;
     
     getUserByUserName( user_name ).then( user => {
-        if ( bcrypt.compareSync( password, password ) ) {
+        if ( bcrypt.compareSync( password, user.password ) ) {
             const token = generateToken( user );
             res.status( 200 ).
                 json( {
