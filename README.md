@@ -15,7 +15,6 @@ Api for Expat Journal. A web application for storing and sharing user experience
 	
 - [Users](#users)
 	- [Get a user with the id.](#get-a-user-with-the-id.)
-	- [Get all users](#get-all-users)
 	- [Log a user in.](#log-a-user-in.)
 	- [Register a new user.](#register-a-new-user.)
 	- [Update user info.](#update-user-info.)
@@ -568,64 +567,6 @@ User Data
        "updated_at": "2019-04-13 18:54:22",
        "user_name": "Constance36"
    }
-```
-### Error Response
-
-Error Example:
-
-```
-ERROR XXX
-{
-    "status": xxx,
-    "message": "Some Error Message"
-}
-```
-## Get all users
-
-
-
-	GET /users
-
-### Headers
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| authorization			| String			|  <p>User auth token.</p>							|
-
-### Examples
-
-Request example:
-
-```
-const request = axios.create({
-    baseURL: 'http://localhost:3200',
-        timeout: 1000,
-        headers: {
-            authorization: "userTokenGoesHere"
-        }
-});
-request.get('/users');
-```
-
-### Success Response
-
-Users Data
-
-```
-[
- {
-        "id": 1,
-        "created_at": "2019-04-13 09:01:42",
-        "updated_at": "2019-04-13 18:54:22",
-        "user_name": "Constance36"
-    },
- {
-        "id": 2,
-        "created_at": "2019-04-13 03:36:08",
-        "updated_at": "2019-04-13 18:54:22",
-        "user_name": "Marcellus_Kautzer24"
-    },...
- ]
 ```
 ### Error Response
 
