@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "migrate": "knex migrate:latest",
-    "seed": "knex seed:run",
+    "migrate": "knex migrate:latest --env production",
+    "seed": "knex seed:run --env production",
     "api-docs": "apidoc -f .js -i ./routes -o apidoc/",
     "build-docs": "apidoc-markdown -p ./apidoc/ -o README.md",
     "build-api": "npm-run-all api-docs build-docs"
