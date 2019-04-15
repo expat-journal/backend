@@ -1,3 +1,7 @@
+require("dotenv").config();
+const pg = require("pg");
+pg.defaults.ssl = true;
+
 const path = require( "path" );
 const dbPath = path.join( __dirname, "./database/expat.sqlite3" );
 const dbPathProd = path.join( __dirname, "./database/expatProd.sqlite3" );
@@ -8,6 +12,7 @@ const localPg = {
     user:     "postgres",
     password: "password",
 };
+console.log( process.env.DATABASE_URL );
 const productionDbConnection = process.env.DATABASE_URL || localPg;
 
 module.exports = {
