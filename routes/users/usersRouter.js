@@ -93,21 +93,14 @@ usersRouter.post( "/register", ( req, res ) => {
     }
     
     user.password = bcrypt.hashSync( user.password, 5 );
-    insertUser( user ).then( ids => {
-        if ( ids[ 0 ] ) {
-            getUserById( ids[ 0 ] ).then( newUser => {
-                res.status( 201 ).json( { ...newUser, password: undefined } );
-            } );
-        } else {
-            throw {
-                message: "Something went wrong adding the user",
-                status:  500
-            };
+    insertUser( user ).then( user => {
+        if ( user ) {
+            res.status( 201 ).json( user[ 0 ] );
         }
         
     } ).catch( err => {
         console.log( err );
-        if ( err.errno === 19 ) {
+        if ( err.message.includes( "duplicate key value" ) ) {
             return res.status( 400 ).
                 json( { message: "Username is taken", status: 400 } );
         }
@@ -147,6 +140,15 @@ usersRouter.post( "/login", ( req, res ) => {
     let { user_name, password } = req.body;
     
     getUserByUserName( user_name ).then( user => {
+        
+        if ( !user ) {
+            return res.status( 404 ).
+                json( {
+                    message: "The user seems to have wondered off.",
+                    status:  404
+                } );
+        }
+        
         if ( bcrypt.compareSync( password, user.password ) ) {
             const token = generateToken( user );
             res.status( 200 ).

@@ -80,7 +80,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments"
+        "url": "https://expat-backend-test.herokuapp.com/comments"
       }
     ],
     "error": {
@@ -164,7 +164,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments/post_id/:id"
+        "url": "https://expat-backend-test.herokuapp.com/comments/post_id/:id"
       }
     ],
     "error": {
@@ -283,7 +283,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments"
+        "url": "https://expat-backend-test.herokuapp.com/comments"
       }
     ],
     "error": {
@@ -416,7 +416,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/"
+        "url": "https://expat-backend-test.herokuapp.com/posts/"
       }
     ],
     "error": {
@@ -500,7 +500,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/id/:id"
+        "url": "https://expat-backend-test.herokuapp.com/posts/id/:id"
       }
     ],
     "error": {
@@ -584,7 +584,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/:offset"
+        "url": "https://expat-backend-test.herokuapp.com/posts/:offset"
       }
     ],
     "error": {
@@ -724,7 +724,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/"
+        "url": "https://expat-backend-test.herokuapp.com/posts/"
       }
     ],
     "error": {
@@ -808,78 +808,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/:id"
-      }
-    ],
-    "error": {
-      "fields": {
-        "Error XXX": [
-          {
-            "group": "Error XXX",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>The status code response.</p>"
-          },
-          {
-            "group": "Error XXX",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>Error message</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error Example:",
-          "content": "ERROR XXX\n{\n    \"status\": xxx,\n    \"message\": \"Some Error Message\"\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "type": "get",
-    "url": "/users",
-    "title": "Get all users",
-    "version": "1.0.0",
-    "name": "GetUsers",
-    "group": "Users",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "authorization",
-            "description": "<p>User auth token.</p>"
-          }
-        ]
-      }
-    },
-    "examples": [
-      {
-        "title": "Request example:",
-        "content": "const request = axios.create({\n    baseURL: 'http://localhost:3200',\n        timeout: 1000,\n        headers: {\n            authorization: \"userTokenGoesHere\"\n        }\n});\nrequest.get('/users');",
-        "type": "json"
-      }
-    ],
-    "success": {
-      "examples": [
-        {
-          "title": "Users Data",
-          "content": "[\n {\n        \"id\": 1,\n        \"created_at\": \"2019-04-13 09:01:42\",\n        \"updated_at\": \"2019-04-13 18:54:22\",\n        \"user_name\": \"Constance36\"\n    },\n {\n        \"id\": 2,\n        \"created_at\": \"2019-04-13 03:36:08\",\n        \"updated_at\": \"2019-04-13 18:54:22\",\n        \"user_name\": \"Marcellus_Kautzer24\"\n    },...\n ]",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "routes/users/usersRouter.js",
-    "groupTitle": "Users",
-    "sampleRequest": [
-      {
-        "url": "https://expat-backend.herokuapp.com/users"
+        "url": "https://expat-backend-test.herokuapp.com/users/:id"
       }
     ],
     "error": {
@@ -957,7 +886,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/login"
+        "url": "https://expat-backend-test.herokuapp.com/users/login"
       }
     ],
     "error": {
@@ -1049,7 +978,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/register"
+        "url": "https://expat-backend-test.herokuapp.com/users/register"
       }
     ],
     "error": {
@@ -1147,7 +1076,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users"
+        "url": "https://expat-backend-test.herokuapp.com/users"
       }
     ],
     "error": {

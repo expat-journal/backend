@@ -22,7 +22,12 @@ const updatePost = post => {
 };
 
 const insertPost = post => {
-    return db( "posts" ).insert( post );
+    return db( "posts" ).
+        returning( [
+            "title", "description", "story", "img_url", "likes", "created_at",
+            "updated_at", "id"
+        ] ).
+        insert( post );
 };
 
 const getPostUserId = id => {

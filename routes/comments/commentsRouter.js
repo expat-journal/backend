@@ -133,16 +133,12 @@ commentsRouter.post( "/", ( req, res ) => {
     
     comment.user_id = user.id;
     
-    addComment( comment ).then( ids => {
-        if ( ids[ 0 ] ) {
-            getCommentById( ids[ 0 ] ).then( newComment => {
-                return res.status( 201 ).json( newComment );
-            } ).catch( err => {
-                throw err;
-            } );
+    addComment( comment ).then( comment => {
+        if ( comment ) {
+            return res.status( 201 ).json( comment );
         } else {
             throw {
-                message: "Something went wrong while trying to insert the comment.",
+                message: "Something went wrong trying to insert the comment.",
                 status:  500
             };
         }
