@@ -80,7 +80,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/comments"
+        "url": "https://expat-backend.herokuapp.com/comments"
       }
     ],
     "error": {
@@ -164,7 +164,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/comments/:id"
+        "url": "https://expat-backend.herokuapp.com/comments/:id"
       }
     ],
     "error": {
@@ -248,7 +248,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/comments/post_id/:id"
+        "url": "https://expat-backend.herokuapp.com/comments/post_id/:id"
       }
     ],
     "error": {
@@ -367,7 +367,7 @@ define({ "api": [
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/comments"
+        "url": "https://expat-backend.herokuapp.com/comments"
       }
     ],
     "error": {
@@ -521,7 +521,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/posts/"
+        "url": "https://expat-backend.herokuapp.com/posts/"
       }
     ],
     "error": {
@@ -605,7 +605,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/posts/:id"
+        "url": "https://expat-backend.herokuapp.com/posts/:id"
       }
     ],
     "error": {
@@ -689,7 +689,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/posts/id/:id"
+        "url": "https://expat-backend.herokuapp.com/posts/id/:id"
       }
     ],
     "error": {
@@ -773,7 +773,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/posts/:offset"
+        "url": "https://expat-backend.herokuapp.com/posts/:offset"
       }
     ],
     "error": {
@@ -913,7 +913,7 @@ define({ "api": [
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/posts/"
+        "url": "https://expat-backend.herokuapp.com/posts/"
       }
     ],
     "error": {
@@ -997,7 +997,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/users/:id"
+        "url": "https://expat-backend.herokuapp.com/users/:id"
       }
     ],
     "error": {
@@ -1081,7 +1081,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/users/posts/:id"
+        "url": "https://expat-backend.herokuapp.com/users/posts/:id"
       }
     ],
     "error": {
@@ -1159,7 +1159,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/users/login"
+        "url": "https://expat-backend.herokuapp.com/users/login"
       }
     ],
     "error": {
@@ -1251,7 +1251,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/users/register"
+        "url": "https://expat-backend.herokuapp.com/users/register"
       }
     ],
     "error": {
@@ -1349,7 +1349,7 @@ define({ "api": [
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "http://localhost:3200/users"
+        "url": "https://expat-backend.herokuapp.com/users"
       }
     ],
     "error": {

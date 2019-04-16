@@ -4,7 +4,7 @@ define({
   "description": "Api for Expat Journal. A web application for storing and sharing user experiences while traveling.",
   "title": "Expat Api",
   "url": "https://expat-backend.herokuapp.com",
-  "sampleUrl": "http://localhost:3200",
+  "sampleUrl": "https://expat-backend.herokuapp.com",
   "template": {
     "withGenerator": true,
     "withCompare": true
@@ -13,7 +13,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2019-04-16T16:29:48.619Z",
+    "time": "2019-04-16T16:31:41.617Z",
     "url": "http://apidocjs.com",
     "version": "0.17.7"
   }
