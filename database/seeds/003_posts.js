@@ -8,15 +8,18 @@ const makePosts = async () => {
     for ( let i = 0; i < pictures.length; i++ ) {
         let user_id = Math.ceil( Math.random() * 100 );
         const post = {
-            user_id:     user_id,
-            title:       pictures[ i ].description,
-            description: faker.lorem.sentence(),
-            story:       faker.lorem.paragraphs(),
-            created_at:  moment( faker.date.recent() ).
-                format( "YYYY-MM-DD HH:mm:ss" ),
-            likes: 0,
-            img_url: pictures[i].pic_url_regular,
-            user_profile_img: pictures[i].user_profile_img,
+            user_id:          user_id,
+            title:            pictures[ i ].description,
+            description:      faker.lorem.sentence(),
+            story:            faker.lorem.paragraphs(),
+            created_at:       moment( faker.date.recent() ).
+                                  format( "YYYY-MM-DD HH:mm:ss" ),
+            likes:            0,
+            img_url:          pictures[ i ].pic_url_regular,
+            user_profile_img: pictures[ i ].user_profile_img,
+            country:          faker.address.country(),
+            city:             faker.address.city(),
+            state:            faker.address.state(),
             
         };
         posts.push( post );

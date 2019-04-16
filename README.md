@@ -311,6 +311,9 @@ ERROR XXX
 | description			| String			|  <p>Short description of the post.</p>							|
 | story			| Text			|  <p>The story of the post.</p>							|
 | img_url			| String			|  <p>The picture url.</p>							|
+| city			| String			|  <p>The city the post was taken in.</p>							|
+| state			| String			|  <p>The state the post was taken in.</p>							|
+| country			| String			|  <p>The country the post was taken in.</p>							|
 | likes			| Number			| **optional** <p>Number of times the post has been liked.</p>							|
 | user_profile_img			| String			| **optional** <p>The users profile image url.</p>							|
 | created_at			| String			| **optional** <p>Time and date the post was created.</p>							|
@@ -334,6 +337,9 @@ const instance = axios.create({
     description: "Some description",
     story: "Lots of text here.",
     img_url: "http://SomeUrl.something",
+    city: "Colorado Springs",
+    state: "Colorado",
+    country: "United States of America"
  });
 ```
 
@@ -344,17 +350,20 @@ Posts Data
 ```
 
  {
-    "id": 979,
-    "created_at": "2019-04-15 01:35:35",
-    "updated_at": "2019-04-15 01:35:35",
-    "user_id": 101,
-    "title": "Some title",
-    "description": "Some description",
-    "story": "la la la lahahahah",
-    "likes": 0,
-    "img_url": "http://someUrl.com",
-    "user_profile_img": null,
-    "user_name": "jeremiah"
+        "id": 2,
+        "created_at": "2019-04-15T22:40:06.000Z",
+        "updated_at": "2019-04-16T16:21:40.204Z",
+        "user_id": 38,
+        "title": "green leaf trees under blue sky",
+        "description": "Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.",
+        "story": "Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\n \rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\n \rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.",
+        "likes": 0,
+        "img_url": "https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ",
+        "user_profile_img": null,
+        "country": "Rwanda",
+        "city": "Bartellton",
+        "state": "New Mexico",
+        "user_name": "Maxine.Larson"
 }
 ```
 ### Error Response
@@ -461,17 +470,20 @@ Posts Data
 ```
 
  {
-    "id": 45,
-    "created_at": "2019-04-14 16:29:02",
-    "updated_at": "2019-04-15 01:19:25",
-    "user_id": 52,
-    "title": "body of water between mountains",
-    "description": "Nostrum sapiente ipsum hic nemo sit exercitationem architecto iure animi.",
-    "story": "Sint porro quis. Perferendis alias et tenetur. Amet nobis totam doloribus dolorem magni velit reiciendis. Fuga rerum accusamus. Et pariatur quae ut eligendi provident et placeat odio qui.\n \rDicta harum ut iure temporibus. Explicabo ea alias cum impedit esse praesentium sed enim blanditiis. Quas nisi voluptatibus dolores ipsum dignissimos. Est asperiores modi tempora. Sint quo officiis mollitia maiores totam dolorem autem ipsam deleniti. Et qui at vel animi minima.\n \rUt voluptatem doloremque voluptatem unde voluptas aut necessitatibus exercitationem tempora. Quam officiis corrupti qui atque quidem sint perspiciatis sed. Molestiae est modi rem dicta non. Voluptas sint consequuntur consequuntur autem. Enim est tempora esse error ut quas deserunt explicabo. Ut accusantium est optio in et dolorem vel cupiditate.",
+    "id": 2,
+    "created_at": "2019-04-15T22:40:06.000Z",
+    "updated_at": "2019-04-16T16:21:40.204Z",
+    "user_id": 38,
+    "title": "green leaf trees under blue sky",
+    "description": "Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.",
+    "story": "Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\n \rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\n \rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.",
     "likes": 0,
-    "img_url": "https://images.unsplash.com/photo-1445217143695-467124038776?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ",
+    "img_url": "https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ",
     "user_profile_img": null,
-    "user_name": "Norris.Halvorson81",
+    "country": "Rwanda",
+    "city": "Bartellton",
+    "state": "New Mexico",
+    "user_name": "Maxine.Larson"
     "comments": [
         {
             "id": 268,
@@ -532,18 +544,21 @@ Posts Data
 
 ```
 [
- {
-        "id": 1,
-        "created_at": "2019-04-14 19:01:18",
-        "updated_at": "2019-04-15 01:19:25",
+    {
+        "id": 2,
+        "created_at": "2019-04-15T22:40:06.000Z",
+        "updated_at": "2019-04-16T16:21:40.204Z",
         "user_id": 38,
-        "title": "mountain peak during golden hour",
-        "description": "Et molestias recusandae consectetur soluta.",
-        "story": "Ut et quia nam eum sed ratione. Reprehenderit vel quia dolores rem harum voluptas praesentium. Veritatis distinctio et ut voluptas ipsa qui. Aut quo perspiciatis.\n \rNobis qui quaerat enim. Reprehenderit recusandae alias blanditiis doloribus quisquam nemo delectus. Et et provident. Mollitia rerum et sint error consequatur ducimus beatae est numquam. Vel culpa nemo accusantium laborum neque sunt. Quod quo excepturi aut sapiente debitis sed quae repellendus sunt.\n \rTempora est exercitationem similique repellat at rerum nihil sequi. Et voluptas esse tenetur quis porro id reiciendis. Voluptas neque culpa. Dignissimos enim ea accusantium iusto reiciendis. Dicta consequuntur ipsam rerum consequatur explicabo.",
+        "title": "green leaf trees under blue sky",
+        "description": "Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.",
+        "story": "Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\n \rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\n \rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.",
         "likes": 0,
-        "img_url": "https://images.unsplash.com/photo-1528920304568-7aa06b3dda8b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ",
+        "img_url": "https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ",
         "user_profile_img": null,
-        "user_name": "Jake.Gorczany95"
+        "country": "Rwanda",
+        "city": "Bartellton",
+        "state": "New Mexico",
+        "user_name": "Maxine.Larson"
     }...
  ]
 ```
