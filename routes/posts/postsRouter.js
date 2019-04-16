@@ -1,5 +1,5 @@
 const postsRouter = require( "express" ).Router();
-const { getRecentPosts, getPostById, insertPost, updatePost, getPostUserId } = require(
+const { getRecentPosts, getPostById, insertPost, updatePost, getPostUserId, deletePost, getUserIdOfPost } = require(
     "./postsModel" );
 const { getCommentsByPostId } = require( "../comments/commentsModal" );
 
@@ -345,6 +345,74 @@ postsRouter.put( "/", ( req, res ) => {
                 message: err.message || "Server error",
                 status:  err.status || 500
             } );
+    } );
+    
+} );
+
+/**
+ * @api {delete} /posts/:id   Delete a post
+ * @apiVersion 1.0.0
+ * @apiName DeletePost
+ * @apiGroup Posts
+ *
+ * @apiHeader {String} authorization    The token given to the user at login.
+ *
+ * @apiParam {Number} id                    Post id.
+ *
+ * @apiExample Delete post example:
+ * const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.delete("/posts/56");
+ *
+ * @apiUse Error
+ *
+ * @apiSuccessExample Update post success
+ *
+ {
+    message: "Success",
+    status: 200
+}
+ *
+ */
+postsRouter.delete( "/:id", ( req, res ) => {
+    
+    const id = req.params.id;
+    
+    if ( !id ) {
+        return res.status( 400 ).
+            json( {
+                message: "You must include the post id in your request.",
+                status:  400
+            } );
+    }
+    
+    const user = req.decodedToken;
+    
+    getUserIdOfPost( id ).then( result => {
+        if ( result.user_id !== user.id ) {
+            return res.status( 401 ).
+                json( {
+                    message: "You must be the post owner in order to remove it.",
+                    status:  401
+                } );
+        }
+        
+        deletePost( id ).then( result => {
+            if ( result === 1 ) {
+                return res.status( 200 ).
+                    json( { message: "Success", status: 200 } );
+            }
+        } ).catch( err => {
+            throw err;
+        } );
+    } ).catch( err => {
+        return res.status( 500 ).json( { message: "Say what?", status: 500 } );
     } );
     
 } );

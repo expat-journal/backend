@@ -4,11 +4,13 @@ Api for Expat Journal. A web application for storing and sharing user experience
 
 - [Comments](#comments)
 	- [Create a comment.](#create-a-comment.)
+	- [Delete a comment.](#delete-a-comment.)
 	- [Get all comments for a post.](#get-all-comments-for-a-post.)
 	- [Update a comment.](#update-a-comment.)
 	
 - [Posts](#posts)
 	- [Create a post](#create-a-post)
+	- [Delete a post](#delete-a-post)
 	- [Gets post by id](#gets-post-by-id)
 	- [Gets posts ordered by updated_at](#gets-posts-ordered-by-updated_at)
 	- [Update a post](#update-a-post)
@@ -78,6 +80,61 @@ Create post success.
     "likes": 0,
     "user_id": 101,
     "post_id": 45
+}
+```
+### Error Response
+
+Error Example:
+
+```
+ERROR XXX
+{
+    "status": xxx,
+    "message": "Some Error Message"
+}
+```
+## Delete a comment.
+
+
+
+	DELETE /comments/:id
+
+### Headers
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| authorization			| String			|  <p>The token given to the user at login.</p>							|
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| id			| Number			|  <p>Id of the comment to delete.</p>							|
+
+### Examples
+
+Post comment example:
+
+```
+const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.delete("/comments/798");
+```
+
+### Success Response
+
+Delete post success.
+
+```
+{
+    message: "Success",
+    status: 200
 }
 ```
 ### Error Response
@@ -298,6 +355,62 @@ Posts Data
     "img_url": "http://someUrl.com",
     "user_profile_img": null,
     "user_name": "jeremiah"
+}
+```
+### Error Response
+
+Error Example:
+
+```
+ERROR XXX
+{
+    "status": xxx,
+    "message": "Some Error Message"
+}
+```
+## Delete a post
+
+
+
+	DELETE /posts/:id
+
+### Headers
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| authorization			| String			|  <p>The token given to the user at login.</p>							|
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| id			| Number			|  <p>Post id.</p>							|
+
+### Examples
+
+Delete post example:
+
+```
+const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.delete("/posts/56");
+```
+
+### Success Response
+
+Update post success
+
+```
+
+ {
+    message: "Success",
+    status: 200
 }
 ```
 ### Error Response
@@ -725,12 +838,15 @@ Register Success
 
 ```
 
-{
-       "id": 1,
-       "created_at": "2019-04-13 09:01:42",
-       "updated_at": "2019-04-13 18:54:22",
-       "user_name": "Constance36"
-   }
+ {
+    "user": {
+        "id": 105,
+        "user_name": "jeremiah18",
+        "created_at": "2019-04-16T02:00:45.244Z",
+        "updated_at": "2019-04-16T02:00:45.244Z"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIwIjp7ImlkIjoxMDUsInVzZXJfbmFtZSI6ImplcmVtaWFoMTgiLCJjcmVhdGVkX2F0IjoiMjAxOS0wNC0xNlQwMjowMDo0NS4yNDRaIiwidXBkYXRlZF9hdCI6IjIwMTktMDQtMTZUMDI6MDA6NDUuMjQ0WiIsInBhc3N3b3JkIjoiJDJiJDA1JHRBNkljUUYuUTNmODZzLnoxS2VuV2VidzBQNkJicG40RXcvYVNsbUMuMEhyU0pHS2ZOdGpDIn0sImlhdCI6MTU1NTM4MDA0NSwiZXhwIjoxNTU1NDY2NDQ1fQ.NAKsX9kM6z4aGrT_TYNjf_sr-FMib5qgoV_zk3NNNg0"
+}
 ```
 ### Error Response
 

@@ -112,6 +112,90 @@ define({ "api": [
     }
   },
   {
+    "type": "delete",
+    "url": "/comments/:id",
+    "title": "Delete a comment.",
+    "version": "1.0.0",
+    "name": "DeleteComment",
+    "group": "Comments",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>The token given to the user at login.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Post comment example:",
+        "content": "const instance = axios.create({\n        baseURL: 'http://localhost:3200',\n        timeout: 1000,\n        headers: {\n            authorization: \"userTokenGoesHere\"\n        }\n    });\n \n instance.delete(\"/comments/798\");",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id of the comment to delete.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Delete post success.",
+          "content": "{\n    message: \"Success\",\n    status: 200\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/comments/commentsRouter.js",
+    "groupTitle": "Comments",
+    "sampleRequest": [
+      {
+        "url": "https://expat-backend.herokuapp.com/comments/:id"
+      }
+    ],
+    "error": {
+      "fields": {
+        "Error XXX": [
+          {
+            "group": "Error XXX",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>The status code response.</p>"
+          },
+          {
+            "group": "Error XXX",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error Example:",
+          "content": "ERROR XXX\n{\n    \"status\": xxx,\n    \"message\": \"Some Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "type": "get",
     "url": "/comments/post_id/:id",
     "title": "Get all comments for a post.",
@@ -417,6 +501,90 @@ define({ "api": [
     "sampleRequest": [
       {
         "url": "https://expat-backend.herokuapp.com/posts/"
+      }
+    ],
+    "error": {
+      "fields": {
+        "Error XXX": [
+          {
+            "group": "Error XXX",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>The status code response.</p>"
+          },
+          {
+            "group": "Error XXX",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error Example:",
+          "content": "ERROR XXX\n{\n    \"status\": xxx,\n    \"message\": \"Some Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
+    "url": "/posts/:id",
+    "title": "Delete a post",
+    "version": "1.0.0",
+    "name": "DeletePost",
+    "group": "Posts",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>The token given to the user at login.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Post id.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Delete post example:",
+        "content": "const instance = axios.create({\n        baseURL: 'http://localhost:3200',\n        timeout: 1000,\n        headers: {\n            authorization: \"userTokenGoesHere\"\n        }\n    });\n \n instance.delete(\"/posts/56\");",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Update post success",
+          "content": "\n {\n    message: \"Success\",\n    status: 200\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/posts/postsRouter.js",
+    "groupTitle": "Posts",
+    "sampleRequest": [
+      {
+        "url": "https://expat-backend.herokuapp.com/posts/:id"
       }
     ],
     "error": {
@@ -1053,7 +1221,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Register Success",
-          "content": "\n{\n       \"id\": 1,\n       \"created_at\": \"2019-04-13 09:01:42\",\n       \"updated_at\": \"2019-04-13 18:54:22\",\n       \"user_name\": \"Constance36\"\n   }",
+          "content": "\n {\n    \"user\": {\n        \"id\": 105,\n        \"user_name\": \"jeremiah18\",\n        \"created_at\": \"2019-04-16T02:00:45.244Z\",\n        \"updated_at\": \"2019-04-16T02:00:45.244Z\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIwIjp7ImlkIjoxMDUsInVzZXJfbmFtZSI6ImplcmVtaWFoMTgiLCJjcmVhdGVkX2F0IjoiMjAxOS0wNC0xNlQwMjowMDo0NS4yNDRaIiwidXBkYXRlZF9hdCI6IjIwMTktMDQtMTZUMDI6MDA6NDUuMjQ0WiIsInBhc3N3b3JkIjoiJDJiJDA1JHRBNkljUUYuUTNmODZzLnoxS2VuV2VidzBQNkJicG40RXcvYVNsbUMuMEhyU0pHS2ZOdGpDIn0sImlhdCI6MTU1NTM4MDA0NSwiZXhwIjoxNTU1NDY2NDQ1fQ.NAKsX9kM6z4aGrT_TYNjf_sr-FMib5qgoV_zk3NNNg0\"\n}",
           "type": "json"
         }
       ]

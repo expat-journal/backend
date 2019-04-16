@@ -38,11 +38,21 @@ const getAllUsersPosts = userId => {
     return db( "posts" ).where( { user_id: userId } );
 };
 
+const deletePost = id => {
+    return db( "posts" ).where( { id } ).delete();
+};
+
+const getUserIdOfPost = id => {
+    return db( "posts" ).select( "user_id" ).where( { id } ).first();
+};
+
 module.exports = {
     getRecentPosts,
     getPostById,
     insertPost,
     updatePost,
     getPostUserId,
-    getAllUsersPosts
+    getAllUsersPosts,
+    deletePost,
+    getUserIdOfPost
 };
