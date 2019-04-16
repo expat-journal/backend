@@ -5,12 +5,13 @@ const moment = require( "moment" );
 const getUsers = () => {
     let users = [];
     let amountOfUsers = 100;
+    const password = bcrypt.hashSync( "password", 14 );
     for ( let i = 0; i < amountOfUsers; i++ ) {
         let user = {
             user_name:  faker.internet.userName(),
-            password:   bcrypt.hashSync( "password", 5 ),
+            password:   password,
             created_at: moment( faker.date.recent() ).
-                format( "YYYY-MM-DD HH:mm:ss" ),
+                            format( "YYYY-MM-DD HH:mm:ss" ),
         };
         users.push( user );
     }

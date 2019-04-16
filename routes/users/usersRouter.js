@@ -1,9 +1,10 @@
 const { getAllUsers, getUserById, insertUser, getUserByUserName, updateUser } = require(
     "./usersModel" );
+const { getAllUsersPosts } = require( "../posts/postsModel" );
 const usersRouter = require( "express" ).Router();
+const { generateToken } = require( "../../api/tokenService" );
 const restricted = require( "../../api/restricted" );
 const bcrypt = require( "bcrypt" );
-const { generateToken } = require( "../../api/tokenService" );
 
 /**
  * @api {get} /users/:id        Get a user with the id.
@@ -218,7 +219,7 @@ usersRouter.put( "/", restricted, ( req, res ) => {
     }
     
     if ( user.password ) {
-        user.password = bcrypt.hashSync( user.password, 5 );
+        user.password = bcrypt.hashSync( user.password, 14 );
     }
     
     updateUser( user ).then( result => {
@@ -242,6 +243,66 @@ usersRouter.put( "/", restricted, ( req, res ) => {
             } );
     } );
     
+} );
+
+/**
+ * @api {get} /users/posts/:id    Get all post for a user.
+ * @apiVersion 1.0.0
+ * @apiName GetUserPosts
+ * @apiGroup Users
+ *
+ * @apiParam {Number} id                User id.
+ *
+ * @apiHeader {String} authorization  User auth token.
+ *
+ * @apiExample Request example:
+ * const request = axios.create({
+ *     baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+ * });
+ * request.get('/users/posts/5');
+ *
+ * @apiUse Error
+ *
+ * @apiSuccessExample Request Success
+ *[
+ {
+        "id": 255,
+        "created_at": "2019-04-15T10:18:46.000Z",
+        "updated_at": "2019-04-16T01:08:12.937Z",
+        "user_id": 14,
+        "title": "aerial photography of buildings",
+        "description": "Doloremque rerum qui nam similique fugit reiciendis molestias nisi voluptatibus.",
+        "story": "Possimus dolor qui dolorem laborum cum et maiores sint. Libero debitis nobis pariatur. Vel molestiae labore sint quam et totam porro occaecati. Repellat sequi tempora.\n \rModi ipsum quia delectus omnis qui excepturi sint iure et. Eum voluptas cupiditate et alias. Ut assumenda dicta alias voluptatem corporis est et similique. Cumque sint aut autem voluptas omnis quae. Quia id eligendi vitae omnis. Voluptatem quia tempora quos voluptas eum deleniti.\n \rAt et aliquam natus. Excepturi omnis qui perspiciatis dolores animi dolorem. Voluptates ullam assumenda ut. Consequatur dolores est autem. Et nobis inventore sapiente dignissimos sed.",
+        "likes": 0,
+        "img_url": "https://images.unsplash.com/photo-1550604306-50c945776859?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ",
+        "user_profile_img": null
+    }...
+ ]
+ *
+ */
+usersRouter.get( "/posts/:id", restricted, ( req, res ) => {
+    
+    const id = req.params.id;
+    if ( !id ) {
+        return res.status( 400 ).
+            json( {
+                message: "You must include the users id in the params.",
+                status:  400
+            } );
+    }
+    getAllUsersPosts( id ).then( posts => {
+        return res.status( 200 ).json( posts );
+    } ).catch( err => {
+        res.status( 500 ).
+            json( {
+                message: "Something went wrong trying to get the users posts.",
+                status:  500
+            } );
+    } );
 } );
 
 module.exports = usersRouter;

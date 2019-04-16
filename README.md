@@ -15,6 +15,7 @@ Api for Expat Journal. A web application for storing and sharing user experience
 	
 - [Users](#users)
 	- [Get a user with the id.](#get-a-user-with-the-id.)
+	- [Get all post for a user.](#get-all-post-for-a-user.)
 	- [Log a user in.](#log-a-user-in.)
 	- [Register a new user.](#register-a-new-user.)
 	- [Update user info.](#update-user-info.)
@@ -567,6 +568,70 @@ User Data
        "updated_at": "2019-04-13 18:54:22",
        "user_name": "Constance36"
    }
+```
+### Error Response
+
+Error Example:
+
+```
+ERROR XXX
+{
+    "status": xxx,
+    "message": "Some Error Message"
+}
+```
+## Get all post for a user.
+
+
+
+	GET /users/posts/:id
+
+### Headers
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| authorization			| String			|  <p>User auth token.</p>							|
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| id			| Number			|  <p>User id.</p>							|
+
+### Examples
+
+Request example:
+
+```
+const request = axios.create({
+    baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+});
+request.get('/users/posts/5');
+```
+
+### Success Response
+
+Request Success
+
+```
+[
+ {
+        "id": 255,
+        "created_at": "2019-04-15T10:18:46.000Z",
+        "updated_at": "2019-04-16T01:08:12.937Z",
+        "user_id": 14,
+        "title": "aerial photography of buildings",
+        "description": "Doloremque rerum qui nam similique fugit reiciendis molestias nisi voluptatibus.",
+        "story": "Possimus dolor qui dolorem laborum cum et maiores sint. Libero debitis nobis pariatur. Vel molestiae labore sint quam et totam porro occaecati. Repellat sequi tempora.\n \rModi ipsum quia delectus omnis qui excepturi sint iure et. Eum voluptas cupiditate et alias. Ut assumenda dicta alias voluptatem corporis est et similique. Cumque sint aut autem voluptas omnis quae. Quia id eligendi vitae omnis. Voluptatem quia tempora quos voluptas eum deleniti.\n \rAt et aliquam natus. Excepturi omnis qui perspiciatis dolores animi dolorem. Voluptates ullam assumenda ut. Consequatur dolores est autem. Et nobis inventore sapiente dignissimos sed.",
+        "likes": 0,
+        "img_url": "https://images.unsplash.com/photo-1550604306-50c945776859?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ",
+        "user_profile_img": null
+    }...
+ ]
 ```
 ### Error Response
 

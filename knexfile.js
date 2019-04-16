@@ -1,6 +1,5 @@
-require("dotenv").config();
-const pg = require("pg");
-pg.defaults.ssl = true;
+require( "dotenv" ).config();
+const pg = require( "pg" );
 
 const path = require( "path" );
 const dbPath = path.join( __dirname, "./database/expat.sqlite3" );
