@@ -838,12 +838,15 @@ Register Success
 
 ```
 
-{
-       "id": 1,
-       "created_at": "2019-04-13 09:01:42",
-       "updated_at": "2019-04-13 18:54:22",
-       "user_name": "Constance36"
-   }
+ {
+    "user": {
+        "id": 105,
+        "user_name": "jeremiah18",
+        "created_at": "2019-04-16T02:00:45.244Z",
+        "updated_at": "2019-04-16T02:00:45.244Z"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIwIjp7ImlkIjoxMDUsInVzZXJfbmFtZSI6ImplcmVtaWFoMTgiLCJjcmVhdGVkX2F0IjoiMjAxOS0wNC0xNlQwMjowMDo0NS4yNDRaIiwidXBkYXRlZF9hdCI6IjIwMTktMDQtMTZUMDI6MDA6NDUuMjQ0WiIsInBhc3N3b3JkIjoiJDJiJDA1JHRBNkljUUYuUTNmODZzLnoxS2VuV2VidzBQNkJicG40RXcvYVNsbUMuMEhyU0pHS2ZOdGpDIn0sImlhdCI6MTU1NTM4MDA0NSwiZXhwIjoxNTU1NDY2NDQ1fQ.NAKsX9kM6z4aGrT_TYNjf_sr-FMib5qgoV_zk3NNNg0"
+}
 ```
 ### Error Response
 

@@ -14,7 +14,7 @@ const getUserByUserName = userName => {
 
 const insertUser = user => {
     return db( "users" ).
-        returning( [ "id", "user_name", "created_at", "updated_at" ] ).
+        returning( [ "id", "user_name", "created_at", "updated_at", "password" ] ).
         insert( user );
     
 };
