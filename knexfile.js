@@ -3,7 +3,6 @@ const pg = require( "pg" );
 
 const path = require( "path" );
 const dbPath = path.join( __dirname, "./database/expat.sqlite3" );
-const dbPathProd = path.join( __dirname, "./database/expatProd.sqlite3" );
 
 const localPg = {
     host:     "localhost",

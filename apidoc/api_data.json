@@ -80,7 +80,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments"
+        "url": "http://localhost:3200/comments"
       }
     ],
     "error": {
@@ -164,7 +164,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments/:id"
+        "url": "http://localhost:3200/comments/:id"
       }
     ],
     "error": {
@@ -248,7 +248,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments/post_id/:id"
+        "url": "http://localhost:3200/comments/post_id/:id"
       }
     ],
     "error": {
@@ -367,7 +367,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments"
+        "url": "http://localhost:3200/comments"
       }
     ],
     "error": {
@@ -451,6 +451,27 @@
           },
           {
             "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>The city the post was taken in.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>The state the post was taken in.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country",
+            "description": "<p>The country the post was taken in.</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "Number",
             "optional": true,
             "field": "likes",
@@ -483,7 +504,7 @@
     "examples": [
       {
         "title": "Create post example:",
-        "content": "const instance = axios.create({\n        baseURL: 'http://localhost:3200',\n        timeout: 1000,\n        headers: {\n            authorization: \"userTokenGoesHere\"\n        }\n    });\n \n instance.post(\"/posts\", {\n    title: \"Some Title\",\n    description: \"Some description\",\n    story: \"Lots of text here.\",\n    img_url: \"http://SomeUrl.something\",\n });",
+        "content": "const instance = axios.create({\n        baseURL: 'http://localhost:3200',\n        timeout: 1000,\n        headers: {\n            authorization: \"userTokenGoesHere\"\n        }\n    });\n \n instance.post(\"/posts\", {\n    title: \"Some Title\",\n    description: \"Some description\",\n    story: \"Lots of text here.\",\n    img_url: \"http://SomeUrl.something\",\n    city: \"Colorado Springs\",\n    state: \"Colorado\",\n    country: \"United States of America\"\n });",
         "type": "json"
       }
     ],
@@ -491,7 +512,7 @@
       "examples": [
         {
           "title": "Posts Data",
-          "content": "\n {\n    \"id\": 979,\n    \"created_at\": \"2019-04-15 01:35:35\",\n    \"updated_at\": \"2019-04-15 01:35:35\",\n    \"user_id\": 101,\n    \"title\": \"Some title\",\n    \"description\": \"Some description\",\n    \"story\": \"la la la lahahahah\",\n    \"likes\": 0,\n    \"img_url\": \"http://someUrl.com\",\n    \"user_profile_img\": null,\n    \"user_name\": \"jeremiah\"\n}",
+          "content": "\n {\n        \"id\": 2,\n        \"created_at\": \"2019-04-15T22:40:06.000Z\",\n        \"updated_at\": \"2019-04-16T16:21:40.204Z\",\n        \"user_id\": 38,\n        \"title\": \"green leaf trees under blue sky\",\n        \"description\": \"Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.\",\n        \"story\": \"Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\\n \\rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\\n \\rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.\",\n        \"likes\": 0,\n        \"img_url\": \"https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ\",\n        \"user_profile_img\": null,\n        \"country\": \"Rwanda\",\n        \"city\": \"Bartellton\",\n        \"state\": \"New Mexico\",\n        \"user_name\": \"Maxine.Larson\"\n}",
           "type": "json"
         }
       ]
@@ -500,7 +521,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/"
+        "url": "http://localhost:3200/posts/"
       }
     ],
     "error": {
@@ -584,7 +605,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/:id"
+        "url": "http://localhost:3200/posts/:id"
       }
     ],
     "error": {
@@ -659,7 +680,7 @@
       "examples": [
         {
           "title": "Posts Data",
-          "content": "\n {\n    \"id\": 45,\n    \"created_at\": \"2019-04-14 16:29:02\",\n    \"updated_at\": \"2019-04-15 01:19:25\",\n    \"user_id\": 52,\n    \"title\": \"body of water between mountains\",\n    \"description\": \"Nostrum sapiente ipsum hic nemo sit exercitationem architecto iure animi.\",\n    \"story\": \"Sint porro quis. Perferendis alias et tenetur. Amet nobis totam doloribus dolorem magni velit reiciendis. Fuga rerum accusamus. Et pariatur quae ut eligendi provident et placeat odio qui.\\n \\rDicta harum ut iure temporibus. Explicabo ea alias cum impedit esse praesentium sed enim blanditiis. Quas nisi voluptatibus dolores ipsum dignissimos. Est asperiores modi tempora. Sint quo officiis mollitia maiores totam dolorem autem ipsam deleniti. Et qui at vel animi minima.\\n \\rUt voluptatem doloremque voluptatem unde voluptas aut necessitatibus exercitationem tempora. Quam officiis corrupti qui atque quidem sint perspiciatis sed. Molestiae est modi rem dicta non. Voluptas sint consequuntur consequuntur autem. Enim est tempora esse error ut quas deserunt explicabo. Ut accusantium est optio in et dolorem vel cupiditate.\",\n    \"likes\": 0,\n    \"img_url\": \"https://images.unsplash.com/photo-1445217143695-467124038776?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ\",\n    \"user_profile_img\": null,\n    \"user_name\": \"Norris.Halvorson81\",\n    \"comments\": [\n        {\n            \"id\": 268,\n            \"created_at\": \"2019-04-14 00:50:05\",\n            \"updated_at\": \"2019-04-15 01:19:26\",\n            \"comment\": \"Dolor rerum eaque dolore praesentium non dolores. Aspernatur sed sit dolorem cumque omnis exercitationem iure quibusdam eum. Animi enim assumenda porro et aut enim non. Consequatur aut quisquam repellat.\",\n            \"user_id\": 74,\n            \"post_id\": 45,\n            \"user_name\": \"Ocie_Gusikowski\"\n        }...\n    ]\n}",
+          "content": "\n {\n    \"id\": 2,\n    \"created_at\": \"2019-04-15T22:40:06.000Z\",\n    \"updated_at\": \"2019-04-16T16:21:40.204Z\",\n    \"user_id\": 38,\n    \"title\": \"green leaf trees under blue sky\",\n    \"description\": \"Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.\",\n    \"story\": \"Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\\n \\rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\\n \\rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.\",\n    \"likes\": 0,\n    \"img_url\": \"https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ\",\n    \"user_profile_img\": null,\n    \"country\": \"Rwanda\",\n    \"city\": \"Bartellton\",\n    \"state\": \"New Mexico\",\n    \"user_name\": \"Maxine.Larson\"\n    \"comments\": [\n        {\n            \"id\": 268,\n            \"created_at\": \"2019-04-14 00:50:05\",\n            \"updated_at\": \"2019-04-15 01:19:26\",\n            \"comment\": \"Dolor rerum eaque dolore praesentium non dolores. Aspernatur sed sit dolorem cumque omnis exercitationem iure quibusdam eum. Animi enim assumenda porro et aut enim non. Consequatur aut quisquam repellat.\",\n            \"user_id\": 74,\n            \"post_id\": 45,\n            \"user_name\": \"Ocie_Gusikowski\"\n        }...\n    ]\n}",
           "type": "json"
         }
       ]
@@ -668,7 +689,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/id/:id"
+        "url": "http://localhost:3200/posts/id/:id"
       }
     ],
     "error": {
@@ -743,7 +764,7 @@
       "examples": [
         {
           "title": "Posts Data",
-          "content": "[\n {\n        \"id\": 1,\n        \"created_at\": \"2019-04-14 19:01:18\",\n        \"updated_at\": \"2019-04-15 01:19:25\",\n        \"user_id\": 38,\n        \"title\": \"mountain peak during golden hour\",\n        \"description\": \"Et molestias recusandae consectetur soluta.\",\n        \"story\": \"Ut et quia nam eum sed ratione. Reprehenderit vel quia dolores rem harum voluptas praesentium. Veritatis distinctio et ut voluptas ipsa qui. Aut quo perspiciatis.\\n \\rNobis qui quaerat enim. Reprehenderit recusandae alias blanditiis doloribus quisquam nemo delectus. Et et provident. Mollitia rerum et sint error consequatur ducimus beatae est numquam. Vel culpa nemo accusantium laborum neque sunt. Quod quo excepturi aut sapiente debitis sed quae repellendus sunt.\\n \\rTempora est exercitationem similique repellat at rerum nihil sequi. Et voluptas esse tenetur quis porro id reiciendis. Voluptas neque culpa. Dignissimos enim ea accusantium iusto reiciendis. Dicta consequuntur ipsam rerum consequatur explicabo.\",\n        \"likes\": 0,\n        \"img_url\": \"https://images.unsplash.com/photo-1528920304568-7aa06b3dda8b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ\",\n        \"user_profile_img\": null,\n        \"user_name\": \"Jake.Gorczany95\"\n    }...\n ]",
+          "content": "[\n    {\n        \"id\": 2,\n        \"created_at\": \"2019-04-15T22:40:06.000Z\",\n        \"updated_at\": \"2019-04-16T16:21:40.204Z\",\n        \"user_id\": 38,\n        \"title\": \"green leaf trees under blue sky\",\n        \"description\": \"Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.\",\n        \"story\": \"Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\\n \\rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\\n \\rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.\",\n        \"likes\": 0,\n        \"img_url\": \"https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ\",\n        \"user_profile_img\": null,\n        \"country\": \"Rwanda\",\n        \"city\": \"Bartellton\",\n        \"state\": \"New Mexico\",\n        \"user_name\": \"Maxine.Larson\"\n    }...\n ]",
           "type": "json"
         }
       ]
@@ -752,7 +773,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/:offset"
+        "url": "http://localhost:3200/posts/:offset"
       }
     ],
     "error": {
@@ -892,7 +913,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/"
+        "url": "http://localhost:3200/posts/"
       }
     ],
     "error": {
@@ -976,7 +997,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/:id"
+        "url": "http://localhost:3200/users/:id"
       }
     ],
     "error": {
@@ -1060,7 +1081,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/posts/:id"
+        "url": "http://localhost:3200/users/posts/:id"
       }
     ],
     "error": {
@@ -1138,7 +1159,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/login"
+        "url": "http://localhost:3200/users/login"
       }
     ],
     "error": {
@@ -1230,7 +1251,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/register"
+        "url": "http://localhost:3200/users/register"
       }
     ],
     "error": {
@@ -1328,7 +1349,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users"
+        "url": "http://localhost:3200/users"
       }
     ],
     "error": {
