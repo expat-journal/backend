@@ -10,6 +10,7 @@ Api for Expat Journal. A web application for storing and sharing user experience
 	
 - [Posts](#posts)
 	- [Create a post](#create-a-post)
+	- [Delete a post](#delete-a-post)
 	- [Gets post by id](#gets-post-by-id)
 	- [Gets posts ordered by updated_at](#gets-posts-ordered-by-updated_at)
 	- [Update a post](#update-a-post)
@@ -354,6 +355,62 @@ Posts Data
     "img_url": "http://someUrl.com",
     "user_profile_img": null,
     "user_name": "jeremiah"
+}
+```
+### Error Response
+
+Error Example:
+
+```
+ERROR XXX
+{
+    "status": xxx,
+    "message": "Some Error Message"
+}
+```
+## Delete a post
+
+
+
+	DELETE /posts/:id
+
+### Headers
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| authorization			| String			|  <p>The token given to the user at login.</p>							|
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| id			| Number			|  <p>Post id.</p>							|
+
+### Examples
+
+Delete post example:
+
+```
+const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.delete("/posts/56");
+```
+
+### Success Response
+
+Update post success
+
+```
+
+ {
+    message: "Success",
+    status: 200
 }
 ```
 ### Error Response

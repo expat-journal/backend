@@ -532,6 +532,90 @@ define({ "api": [
     }
   },
   {
+    "type": "delete",
+    "url": "/posts/:id",
+    "title": "Delete a post",
+    "version": "1.0.0",
+    "name": "DeletePost",
+    "group": "Posts",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>The token given to the user at login.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Post id.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Delete post example:",
+        "content": "const instance = axios.create({\n        baseURL: 'http://localhost:3200',\n        timeout: 1000,\n        headers: {\n            authorization: \"userTokenGoesHere\"\n        }\n    });\n \n instance.delete(\"/posts/56\");",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Update post success",
+          "content": "\n {\n    message: \"Success\",\n    status: 200\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/posts/postsRouter.js",
+    "groupTitle": "Posts",
+    "sampleRequest": [
+      {
+        "url": "https://expat-backend.herokuapp.com/posts/:id"
+      }
+    ],
+    "error": {
+      "fields": {
+        "Error XXX": [
+          {
+            "group": "Error XXX",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>The status code response.</p>"
+          },
+          {
+            "group": "Error XXX",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error Example:",
+          "content": "ERROR XXX\n{\n    \"status\": xxx,\n    \"message\": \"Some Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "type": "get",
     "url": "/posts/id/:id",
     "title": "Gets post by id",
