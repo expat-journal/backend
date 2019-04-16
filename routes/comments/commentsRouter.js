@@ -1,4 +1,4 @@
-const { getCommentsByPostId, addComment, getCommentById, editComment } = require(
+const { getCommentsByPostId, addComment, getCommentById, editComment, delteComment, getUserIdOfComment } = require(
     "./commentsModal" );
 
 const commentsRouter = require( "express" ).Router();
@@ -231,6 +231,69 @@ commentsRouter.put( "/", ( req, res ) => {
                 status:  err.status || 500
             } );
     } );
+} );
+
+/**
+ * @api {delete} /comments/:id   Delete a comment.
+ * @apiVersion 1.0.0
+ * @apiName DeleteComment
+ * @apiGroup Comments
+ *
+ * @apiHeader {String} authorization    The token given to the user at login.
+ *
+ * @apiExample Post comment example:
+ * const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.delete("/comments/798");
+ *
+ * @apiParam {Number} id     Id of the comment to delete.
+ *
+ * @apiUse Error
+ *
+ * @apiSuccessExample Delete post success.
+ *{
+    message: "Success",
+    status: 200
+}
+ *
+ */
+commentsRouter.delete( "/:id", ( req, res ) => {
+    const id = req.params.id;
+    const user = req.decodedToken;
+    
+    if ( !id ) {
+        return res.status( "400" ).
+            json(
+                { message: "You must include the id of the comment you want to delete." } );
+    }
+    
+    getUserIdOfComment( id ).then( result => {
+        
+        if ( result.user_id !== user.id ) {
+            return res.status( 401 ).
+                json( {
+                    message: "You must be the comment owner in order to remove it.",
+                    status:  401
+                } );
+        }
+        
+        delteComment( id ).then( result => {
+            if ( result === 1 ) {
+                return res.status( 200 ).
+                    json( { message: "Success", status: 200 } );
+            }
+        } ).catch( err => {
+            return res.status( 500 ).
+                json( { message: "opps I did it again", status: 500 } );
+        } );
+    } );
+    
 } );
 
 module.exports = commentsRouter;

@@ -4,6 +4,7 @@ Api for Expat Journal. A web application for storing and sharing user experience
 
 - [Comments](#comments)
 	- [Create a comment.](#create-a-comment.)
+	- [Delete a comment.](#delete-a-comment.)
 	- [Get all comments for a post.](#get-all-comments-for-a-post.)
 	- [Update a comment.](#update-a-comment.)
 	
@@ -78,6 +79,61 @@ Create post success.
     "likes": 0,
     "user_id": 101,
     "post_id": 45
+}
+```
+### Error Response
+
+Error Example:
+
+```
+ERROR XXX
+{
+    "status": xxx,
+    "message": "Some Error Message"
+}
+```
+## Delete a comment.
+
+
+
+	DELETE /comments/:id
+
+### Headers
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| authorization			| String			|  <p>The token given to the user at login.</p>							|
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| id			| Number			|  <p>Id of the comment to delete.</p>							|
+
+### Examples
+
+Post comment example:
+
+```
+const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.delete("/comments/798");
+```
+
+### Success Response
+
+Delete post success.
+
+```
+{
+    message: "Success",
+    status: 200
 }
 ```
 ### Error Response

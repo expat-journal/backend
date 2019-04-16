@@ -11,6 +11,10 @@ const getCommentsByPostId = postId => {
         where( { "comments.post_id": postId } );
 };
 
+const getUserIdOfComment = id => {
+    return db( "comments" ).select( "user_id" ).where( { id } ).first();
+};
+
 const addComment = comment => {
     return db( "comments" ).
         returning(
@@ -24,9 +28,15 @@ const editComment = comment => {
     return db( "comments" ).where( { id: comment.id } ).update( comment );
 };
 
+const delteComment = id => {
+    return db( "comments" ).where( { id } ).delete();
+};
+
 module.exports = {
     getCommentById,
     getCommentsByPostId,
     addComment,
     editComment,
+    delteComment,
+    getUserIdOfComment,
 };
