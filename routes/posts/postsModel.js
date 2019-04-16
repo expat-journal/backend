@@ -34,10 +34,15 @@ const getPostUserId = id => {
     return db( "posts" ).select( "user_id" ).where( { id } ).first();
 };
 
+const getAllUsersPosts = userId => {
+    return db( "posts" ).where( { user_id: userId } );
+};
+
 module.exports = {
     getRecentPosts,
     getPostById,
     insertPost,
     updatePost,
     getPostUserId,
+    getAllUsersPosts
 };
