@@ -162,8 +162,9 @@ usersRouter.post( "/login", ( req, res ) => {
             const token = generateToken( user );
             res.status( 200 ).
                 json( {
-                    message: `Welcome ${ user.user_name }!`,
-                    status:  200,
+                    message:   `Welcome ${ user.user_name }!`,
+                    user_name: user.user_name,
+                    status:    200,
                     token
                 } );
         } else {
