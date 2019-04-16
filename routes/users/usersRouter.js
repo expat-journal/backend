@@ -164,6 +164,7 @@ usersRouter.post( "/login", ( req, res ) => {
                 json( {
                     message:   `Welcome ${ user.user_name }!`,
                     user_name: user.user_name,
+                    id:        user.id,
                     status:    200,
                     token
                 } );

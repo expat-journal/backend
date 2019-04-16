@@ -1,5 +1,5 @@
 const postsRouter = require( "express" ).Router();
-const { getRecentPosts, getPostById, insertPost, updatePost, getPostUserId, deletePost, getUserIdOfPost } = require(
+const { getRecentPosts, getPostById, insertPost, updatePost, getPostUserId, deletePost, getUserIdOfPost, getAllPosts } = require(
     "./postsModel" );
 const { getCommentsByPostId } = require( "../comments/commentsModal" );
 
@@ -24,7 +24,7 @@ const { getCommentsByPostId } = require( "../comments/commentsModal" );
  *
  * @apiSuccessExample Posts Data
  *[
-    {
+ {
         "id": 2,
         "created_at": "2019-04-15T22:40:06.000Z",
         "updated_at": "2019-04-16T16:21:40.204Z",
@@ -428,6 +428,74 @@ postsRouter.delete( "/:id", ( req, res ) => {
         } );
     } ).catch( err => {
         return res.status( 500 ).json( { message: "Say what?", status: 500 } );
+    } );
+    
+} );
+
+/**
+ * @api {post} /posts/search   Search posts
+ * @apiVersion 1.0.0
+ * @apiName SearchPosts
+ * @apiGroup Posts
+ *
+ * @apiHeader {String} authorization    The token given to the user at login.
+ *
+ * @apiParam {String} query             String to search for.
+ *
+ * @apiExample Search example:
+ * const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.post("/posts/search", {
+    query: "search words"
+ });
+ *
+ * @apiUse Error
+ *
+ * @apiSuccessExample Update post success
+ *
+ {
+    message: "Success",
+    status: 200
+}
+ *
+ */
+postsRouter.post( "/search", ( req, res ) => {
+    
+    const query = req.body;
+    
+    if ( !query ) {
+        return res.status( 400 ).
+            json( {
+                message: "You must include string to search for.",
+                status:  400
+            } );
+    }
+    
+    getAllPosts().then( async results => {
+        
+        const options = {
+            shouldSort:         true,
+            threshold:          0.6,
+            location:           0,
+            distance:           100,
+            maxPatternLength:   32,
+            minMatchCharLength: 1,
+            keys:               [
+                "country",
+                "state",
+                "city"
+            ]
+        };
+        
+        const fuse = new Fuse( results, options );
+        const result = fuse.search( query );
+        res.status( 200 ).json( result );
     } );
     
 } );
