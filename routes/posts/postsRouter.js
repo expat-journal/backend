@@ -2,6 +2,8 @@ const postsRouter = require( "express" ).Router();
 const { getRecentPosts, getPostById, insertPost, updatePost, getPostUserId, deletePost, getUserIdOfPost, getAllPosts } = require(
     "./postsModel" );
 const { getCommentsByPostId } = require( "../comments/commentsModal" );
+// const MiniSearch = require( "minisearch" );
+const Fuse = require( "fuse.js" );
 
 /**
  * @api {get} /posts/:offset     Gets posts ordered by updated_at
@@ -428,6 +430,72 @@ postsRouter.delete( "/:id", ( req, res ) => {
         } );
     } ).catch( err => {
         return res.status( 500 ).json( { message: "Say what?", status: 500 } );
+    } );
+    
+} );
+
+/**
+ * @api {post} /posts/search   Search posts by country, state, city, or
+ *     description
+ * @apiVersion 1.0.0
+ * @apiName SearchPosts
+ * @apiGroup Posts
+ *
+ * @apiHeader {String} authorization    The token given to the user at login.
+ *
+ * @apiParam {String} query             Search phrase.
+ *
+ * @apiExample Delete post example:
+ * const instance = axios.create({
+        baseURL: 'http://localhost:3200',
+        timeout: 1000,
+        headers: {
+            authorization: "userTokenGoesHere"
+        }
+    });
+ 
+ instance.post("/posts/search", {
+    query: "Search phrase"
+ });
+ *
+ * @apiUse Error
+ *
+ * @apiSuccessExample Update post success
+ *
+ {
+    message: "Success",
+    status: 200
+}
+ *
+ */
+postsRouter.post( "/search", ( req, res ) => {
+    
+    const { query } = req.body;
+    
+    if ( !query ) {
+        return res.status( 400 ).
+            json( {
+                message: "You must include the query phrase to search for.",
+                status:  400
+            } );
+    }
+    
+    getAllPosts().then( posts => {
+        
+        const options = {
+            shouldSort:         true,
+            threshold:          0.3,
+            location:           0,
+            distance:           100,
+            maxPatternLength:   32,
+            minMatchCharLength: 1,
+            keys:               [ "country", "state", "city", "description" ],
+        };
+        
+        const fuse = new Fuse( posts, options );
+        let results = fuse.search( query );
+        res.status( 200 ).json( results );
+        
     } );
     
 } );
