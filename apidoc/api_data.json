@@ -806,8 +806,8 @@
   },
   {
     "type": "post",
-    "url": "/posts/search   Search posts by country, state, city, or",
-    "title": "description",
+    "url": "/posts/search",
+    "title": "Search posts by country, state, city, or des",
     "version": "1.0.0",
     "name": "SearchPosts",
     "group": "Posts",
@@ -857,7 +857,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/search   Search posts by country, state, city, or"
+        "url": "https://expat-backend.herokuapp.com/posts/search"
       }
     ],
     "error": {

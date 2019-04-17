@@ -435,8 +435,7 @@ postsRouter.delete( "/:id", ( req, res ) => {
 } );
 
 /**
- * @api {post} /posts/search   Search posts by country, state, city, or
- *     description
+ * @api {post} /posts/search   Search posts by country, state, city, or des
  * @apiVersion 1.0.0
  * @apiName SearchPosts
  * @apiGroup Posts
