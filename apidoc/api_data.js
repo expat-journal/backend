@@ -764,7 +764,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Posts Data",
-          "content": "[\n    {\n        \"id\": 2,\n        \"created_at\": \"2019-04-15T22:40:06.000Z\",\n        \"updated_at\": \"2019-04-16T16:21:40.204Z\",\n        \"user_id\": 38,\n        \"title\": \"green leaf trees under blue sky\",\n        \"description\": \"Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.\",\n        \"story\": \"Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\\n \\rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\\n \\rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.\",\n        \"likes\": 0,\n        \"img_url\": \"https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ\",\n        \"user_profile_img\": null,\n        \"country\": \"Rwanda\",\n        \"city\": \"Bartellton\",\n        \"state\": \"New Mexico\",\n        \"user_name\": \"Maxine.Larson\"\n    }...\n ]",
+          "content": "[\n {\n        \"id\": 2,\n        \"created_at\": \"2019-04-15T22:40:06.000Z\",\n        \"updated_at\": \"2019-04-16T16:21:40.204Z\",\n        \"user_id\": 38,\n        \"title\": \"green leaf trees under blue sky\",\n        \"description\": \"Autem tenetur impedit aut explicabo soluta sint sunt vel corporis.\",\n        \"story\": \"Et sed fugit. In fugit placeat praesentium. Dolores est id facilis itaque quibusdam ut.\\n \\rQuia dolorum quibusdam adipisci amet unde enim. Itaque a repellendus deleniti voluptatibus aut nisi. Vero consequuntur placeat quod saepe aliquam odit illo. Rem eos omnis quam et. Iste repellendus nihil voluptatem quo.\\n \\rEt qui repellat rerum ut deserunt assumenda. Dicta libero non. Et et fugiat id eum hic nam itaque. Dolore magni facere maiores. Vel corrupti qui assumenda sapiente consequatur delectus sit. Iste expedita ut officiis.\",\n        \"likes\": 0,\n        \"img_url\": \"https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjU2NzU3fQ\",\n        \"user_profile_img\": null,\n        \"country\": \"Rwanda\",\n        \"city\": \"Bartellton\",\n        \"state\": \"New Mexico\",\n        \"user_name\": \"Maxine.Larson\"\n    }...\n ]",
           "type": "json"
         }
       ]
@@ -774,6 +774,90 @@ define({ "api": [
     "sampleRequest": [
       {
         "url": "https://expat-backend.herokuapp.com/posts/:offset"
+      }
+    ],
+    "error": {
+      "fields": {
+        "Error XXX": [
+          {
+            "group": "Error XXX",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>The status code response.</p>"
+          },
+          {
+            "group": "Error XXX",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Error message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error Example:",
+          "content": "ERROR XXX\n{\n    \"status\": xxx,\n    \"message\": \"Some Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "post",
+    "url": "/posts/search   Search posts by country, state, city, or",
+    "title": "description",
+    "version": "1.0.0",
+    "name": "SearchPosts",
+    "group": "Posts",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "authorization",
+            "description": "<p>The token given to the user at login.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "query",
+            "description": "<p>Search phrase.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Delete post example:",
+        "content": "const instance = axios.create({\n        baseURL: 'http://localhost:3200',\n        timeout: 1000,\n        headers: {\n            authorization: \"userTokenGoesHere\"\n        }\n    });\n \n instance.post(\"/posts/search\", {\n    query: \"Search phrase\"\n });",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Update post success",
+          "content": "\n {\n    message: \"Success\",\n    status: 200\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/posts/postsRouter.js",
+    "groupTitle": "Posts",
+    "sampleRequest": [
+      {
+        "url": "https://expat-backend.herokuapp.com/posts/search   Search posts by country, state, city, or"
       }
     ],
     "error": {

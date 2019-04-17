@@ -46,6 +46,10 @@ const getUserIdOfPost = id => {
     return db( "posts" ).select( "user_id" ).where( { id } ).first();
 };
 
+const getAllPosts = () => {
+    return db( "posts" );
+};
+
 module.exports = {
     getRecentPosts,
     getPostById,
@@ -54,5 +58,6 @@ module.exports = {
     getPostUserId,
     getAllUsersPosts,
     deletePost,
-    getUserIdOfPost
+    getUserIdOfPost,
+    getAllPosts
 };
