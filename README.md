@@ -13,7 +13,7 @@ Api for Expat Journal. A web application for storing and sharing user experience
 	- [Delete a post](#delete-a-post)
 	- [Gets post by id](#gets-post-by-id)
 	- [Gets posts ordered by updated_at](#gets-posts-ordered-by-updated_at)
-	- [description](#description)
+	- [Search posts by country, state, city, or des](#search-posts-by-country,-state,-city,-or-des)
 	- [Update a post](#update-a-post)
 	
 - [Users](#users)
@@ -574,11 +574,11 @@ ERROR XXX
     "message": "Some Error Message"
 }
 ```
-## description
+## Search posts by country, state, city, or des
 
 
 
-	POST /posts/search   Search posts by country, state, city, or
+	POST /posts/search
 
 ### Headers
 
