@@ -140,6 +140,8 @@ usersRouter.post( "/register", ( req, res ) => {
  *
  {
     "message": "Welcome jeremiah!",
+    "user_name": "jeremiah",
+    "id": 101
     "status": 200,
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAxLCJjcmVhdGVkX2F0IjoiMjAxOS0wNC0xMyAyMzowMDoxNSIsInVwZGF0ZWRfYXQiOiIyMDE5LTA0LTEzIDIzOjAwOjE1IiwidXNlcl9uYW1lIjoiamVyZW1pYWgiLCJpYXQiOjE1NTUxOTY0MzAsImV4cCI6MTU1NTI4MjgzMH0.3dY5x5o-OTRPLJwCc2mYSMzjsfdXomtHWvrc14QUvQ4"
 }
@@ -162,8 +164,10 @@ usersRouter.post( "/login", ( req, res ) => {
             const token = generateToken( user );
             res.status( 200 ).
                 json( {
-                    message: `Welcome ${ user.user_name }!`,
-                    status:  200,
+                    message:   `Welcome ${ user.user_name }!`,
+                    user_name: user.user_name,
+                    id:        user.id,
+                    status:    200,
                     token
                 } );
         } else {

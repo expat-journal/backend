@@ -1,5 +1,5 @@
 const postsRouter = require( "express" ).Router();
-const { getRecentPosts, getPostById, insertPost, updatePost, getPostUserId, deletePost, getUserIdOfPost } = require(
+const { getRecentPosts, getPostById, insertPost, updatePost, getPostUserId, deletePost, getUserIdOfPost, getAllPosts } = require(
     "./postsModel" );
 const { getCommentsByPostId } = require( "../comments/commentsModal" );
 
@@ -24,7 +24,7 @@ const { getCommentsByPostId } = require( "../comments/commentsModal" );
  *
  * @apiSuccessExample Posts Data
  *[
-    {
+ {
         "id": 2,
         "created_at": "2019-04-15T22:40:06.000Z",
         "updated_at": "2019-04-16T16:21:40.204Z",
