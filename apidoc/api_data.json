@@ -80,7 +80,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments"
+        "url": "http://localhost:3200/comments"
       }
     ],
     "error": {
@@ -164,7 +164,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments/:id"
+        "url": "http://localhost:3200/comments/:id"
       }
     ],
     "error": {
@@ -248,7 +248,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments/post_id/:id"
+        "url": "http://localhost:3200/comments/post_id/:id"
       }
     ],
     "error": {
@@ -367,7 +367,7 @@
     "groupTitle": "Comments",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/comments"
+        "url": "http://localhost:3200/comments"
       }
     ],
     "error": {
@@ -521,7 +521,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/"
+        "url": "http://localhost:3200/posts/"
       }
     ],
     "error": {
@@ -605,7 +605,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/:id"
+        "url": "http://localhost:3200/posts/:id"
       }
     ],
     "error": {
@@ -689,7 +689,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/id/:id"
+        "url": "http://localhost:3200/posts/id/:id"
       }
     ],
     "error": {
@@ -773,7 +773,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/:offset"
+        "url": "http://localhost:3200/posts/:offset"
       }
     ],
     "error": {
@@ -857,7 +857,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/search"
+        "url": "http://localhost:3200/posts/search"
       }
     ],
     "error": {
@@ -997,7 +997,7 @@
     "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/posts/"
+        "url": "http://localhost:3200/posts/"
       }
     ],
     "error": {
@@ -1081,7 +1081,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/:id"
+        "url": "http://localhost:3200/users/:id"
       }
     ],
     "error": {
@@ -1165,7 +1165,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/posts/:id"
+        "url": "http://localhost:3200/users/posts/:id"
       }
     ],
     "error": {
@@ -1243,7 +1243,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/login"
+        "url": "http://localhost:3200/users/login"
       }
     ],
     "error": {
@@ -1335,7 +1335,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users/register"
+        "url": "http://localhost:3200/users/register"
       }
     ],
     "error": {
@@ -1433,7 +1433,7 @@
     "groupTitle": "Users",
     "sampleRequest": [
       {
-        "url": "https://expat-backend.herokuapp.com/users"
+        "url": "http://localhost:3200/users"
       }
     ],
     "error": {

@@ -469,6 +469,8 @@ postsRouter.delete( "/:id", ( req, res ) => {
  */
 postsRouter.post( "/search", ( req, res ) => {
     
+    console.log( name );
+    
     const { query } = req.body;
     
     if ( !query ) {
@@ -483,7 +485,7 @@ postsRouter.post( "/search", ( req, res ) => {
         
         const options = {
             shouldSort:         true,
-            threshold:          0.3,
+            threshold:          0.4,
             location:           0,
             distance:           100,
             maxPatternLength:   32,

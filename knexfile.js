@@ -10,9 +10,16 @@ const localPg = {
     user:     "postgres",
     password: "password",
 };
+
+const localPgTest = {
+    host:     "localhost",
+    database: "test",
+    user:     "postgres",
+    password: "password",
+};
+
 console.log( process.env.DATABASE_URL );
 const productionDbConnection = process.env.DATABASE_URL || localPg;
-
 module.exports = {
     development: {
         client:           "sqlite3",
@@ -31,12 +38,9 @@ module.exports = {
         },
     },
     testing:     {
-        client:           "sqlite3",
-        connection:       {
-            filename: path.join( __dirname, "./database/test.sqlite3" ),
-        },
-        useNullAsDefault: true,
-        migrations:       {
+        client:     "pg",
+        connection: localPgTest,
+        migrations: {
             directory: "./database/migrations",
             tableName: "dbmigrations",
         },
